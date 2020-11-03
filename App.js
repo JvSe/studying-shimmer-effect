@@ -1,18 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './src/Pages/Home';
+import Perfil from './src/Pages/Perfil';
 
+const Stack = createStackNavigator();
 export default function App(){
-  return(
-    <View style={style.container}>
-      <Text> Hello World! </Text>
-    </View>
-  )
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Perfil" component={Perfil} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  }
-})
